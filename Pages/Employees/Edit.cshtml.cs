@@ -29,5 +29,10 @@ namespace TutorialKudvenkat.Pages.Employees
             }
             return Page();
         }
+        public IActionResult OnPost(Employee employee)
+        {
+            Employee = employeeRepository.Update(employee);
+            return RedirectToPage("Index");
+        }
     }
 }
