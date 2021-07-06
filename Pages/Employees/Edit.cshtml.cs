@@ -25,7 +25,7 @@ namespace TutorialKudvenkat.Pages.Employees
             Employee = employeeRepository.GetEmployee(id);
             if (Employee == null)
             {
-                RedirectToPage("/NotFound");
+                return RedirectToPage("/NotFound");
             }
             return Page();
         }
