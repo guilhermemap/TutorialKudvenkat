@@ -29,6 +29,11 @@ namespace TutorialKudvenkat.Pages.Employees
         [BindProperty]
         public IFormFile Photo { get; set; }
 
+        [BindProperty]
+        public bool Notify { get; set; }
+
+        public string Message { get; set; }
+
         public IActionResult OnGet(int id)
         {
             Employee = employeeRepository.GetEmployee(id);
@@ -58,6 +63,23 @@ namespace TutorialKudvenkat.Pages.Employees
             return RedirectToPage("Index");
         }
 
+        public IActionResult OnPostUpdateNotificationPreferences(int id)
+        {
+            if (Notify)
+            {
+                Message = "Thank you for turning on notifications";
+            }
+            else
+            {
+                Message = "You have turned off email notifications";
+            }
+            // Store the confirmation message in TempData
+            TempData["message"] = Message;
+
+            // Redirect the request to Details razor page and pass along 
+            // EmployeeID in URL as a route parameter
+            return RedirectToPage("Details", new { id = id });
+        }
         private string ProcessUploadedFile()
         {
             string uniqueFileName = null;
