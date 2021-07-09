@@ -18,7 +18,8 @@
 
 <div class="row justify-content-center m-3">
     <div class="col-sm-8">
-        @await Component.InvokeAsync("HeadCount", new { dept = Model.Employee.Department}) 
+        @*@await Component.InvokeAsync("HeadCount", new { dept = Model.Employee.Department}) *@
+        <vc:head-count dept="@Model.Employee.Department"></vc:head-count>
     </div>
     <div class="col-sm-8">
         <div class="card">
