@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using TutorialKudvenkat.Models;
 using TutorialKudvenkat.Services;
 
 namespace TutorialKudvenkat.Pages.ViewComponents
@@ -15,9 +16,9 @@ namespace TutorialKudvenkat.Pages.ViewComponents
         {
             this.employeeRepository = employeeRepository;
         }
-        public IViewComponentResult Invoke()
+        public IViewComponentResult Invoke(Dept? dept = null)
         {
-            var result = employeeRepository.EmployeeCountByDept();
+            var result = employeeRepository.EmployeeCountByDept(dept);
             return View(result); 
         }
     }

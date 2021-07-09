@@ -11,11 +11,14 @@
     }
 </style>
 
+@await Component.InvokeAsync("HeadCount")
+
+
 <h1>Employees</h1>
 
 <div class="card-deck">
     @foreach (var employee in Model.Employees)
     {
-        <partial name="_DisplayEmployeePartial" model="employee" view-data="ViewData"/>
+        <partial name="_DisplayEmployeePartial" model="employee" view-data="ViewData" />
     }
 </div>
