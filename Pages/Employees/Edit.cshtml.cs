@@ -97,7 +97,7 @@ namespace TutorialKudvenkat.Pages.Employees
 
             // Redirect the request to Details razor page and pass along 
             // EmployeeID in URL as a route parameter
-            return RedirectToPage("Details", new { id = id });
+            return RedirectToPage("Details", new { id });
         }
         private string ProcessUploadedFile()
         {
@@ -108,10 +108,8 @@ namespace TutorialKudvenkat.Pages.Employees
                 string uploadsFolder = Path.Combine(webHostEnvironment.WebRootPath, "images");
                 uniqueFileName = Guid.NewGuid().ToString() + "_" + Photo.FileName;
                 string filePath = Path.Combine(uploadsFolder, uniqueFileName);
-                using (var fileStream = new FileStream(filePath, FileMode.Create))
-                {
-                    Photo.CopyTo(fileStream);
-                }
+                using var fileStream = new FileStream(filePath, FileMode.Create);
+                Photo.CopyTo(fileStream);
             }
 
             return uniqueFileName;
