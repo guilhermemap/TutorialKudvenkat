@@ -2,7 +2,7 @@
 @model TutorialKudvenkat.Pages.Employees.EditModel
 @{
     ViewData["Title"] = "Edit";
-    var photoPath = "~/images/" + (Model.Employee.PhotoPath ?? "noimage.jpg");
+    var photoPath = "~/images/" + (Model.Employee.PhotoPath ?? "none.png");
     var pageHeader = Model.Employee.Id > 0 ? "Edit" : "Create";
 }
 <h1>Notification Preferences</h1>

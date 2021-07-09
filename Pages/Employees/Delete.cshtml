@@ -1,9 +1,11 @@
 ﻿@page "{id}"
 @model TutorialKudvenkat.Pages.Employees.DeleteModel
 @{
+    ViewData["ShowButtons"] = false;
 }
 <h1>Delete Confirmation</h1>
 <div class="alert alert-danger">
+    <partial name="_DisplayEmployeePartial" model="Model.Employee" data-viewport="DataView"/>
     <h5>Are you sure you want to delete employee - @Model.Employee.Name ? </h5>
     <form method="post">
         <button type="submit" class="btn btn-danger">Yes</button>

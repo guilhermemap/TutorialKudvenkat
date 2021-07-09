@@ -2,7 +2,7 @@
 @model TutorialKudvenkat.Pages.Employees.DetailsModel
 @{
     ViewData["Title"] = "Details";
-    var photoPath = "~/Images/" + (Model.Employee.PhotoPath ?? "noimage.jpg");
+    var photoPath = "~/Images/" + (Model.Employee.PhotoPath ?? "none.png");
 }
 
 
@@ -17,6 +17,9 @@
 
 
 <div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        @await Component.InvokeAsync("HeadCount"); 
+    </div>
     <div class="col-sm-8">
         <div class="card">
             <div class="card-header">
